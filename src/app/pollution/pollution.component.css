@@ -12,3 +12,13 @@ table {
 th, td {
   padding: 10px;
 }
+
+.pagination-container{
+
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+.pagination-container button{
+  margin-left: 5 px;
+}

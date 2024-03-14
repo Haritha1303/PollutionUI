@@ -7,19 +7,26 @@ import { PollutionComponent } from './pollution/pollution.component';
 import { PollutionService } from './pollution.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { BookmarkComponent } from './bookmark/bookmark.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PollutionComponent
+    PollutionComponent,
+    LoginComponent,
+    RegistrationComponent,
+    BookmarkComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PollutionService],
   bootstrap: [AppComponent]

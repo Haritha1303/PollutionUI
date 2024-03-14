@@ -18,9 +18,32 @@ totalItems=0;
     
   }
   fetchPollutionData():void{
-    this.pollutionService.viewPollutionData().subscribe(pollutionData=>{this.pollutionData=pollutionData;
+    this.pollutionService.viewPollutionData().subscribe(pollutionData=>{this.pollutionData=this.convertResponseToObjectArray(pollutionData);
       this.totalItems=this.pollutionData.length;});
   }
+
+ private convertResponseToObjectArray(responseData: any[]): PollutionData[]{
+  const objectsArray:PollutionData[]=[];
+  for(const item of responseData){
+    console.log(item);
+   const myObject:PollutionData={
+      id: item.id,
+      year2018: item['2018'],
+      year2019: item['2019'],
+      year2020: item['2020'],
+      year2021: item['2021'],
+      year2022: item['2022'],
+      year2023: item['2023'],
+      city: item.city,
+      country: item.country
+    };
+    objectsArray.push(myObject);
+    console.log(objectsArray);
+  }
+  return objectsArray;
+ }
+
+
 
   onPageChange(pageNumber: number):void{
     this.currentPage=pageNumber;
