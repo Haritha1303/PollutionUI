@@ -1,4 +1,5 @@
-    <table>
+<button class="bookmark-button"(click)="bookmarkData(data)">Bookmark</button>
+<table>
 <thead>
     <tr>
  <th>id</th>
@@ -10,6 +11,7 @@
 <th>2021</th>
 <th>2022</th>
 <th>2023</th>
+<td><button class="view-bookmark-button"(click)="viewbookmarkData()">Favorites</button>
 </tr></thead>
 <tbody>
     <tr *ngFor="let data of getPaginatedData()">
@@ -22,6 +24,7 @@
     <td>{{data.year2021}}</td>
     <td>{{data.year2022}}</td>
     <td>{{data.year2023}}</td>
+    </td>
 </tr>
 </tbody> 
 </table>
@@ -30,3 +33,7 @@
         <span>Page{{currentPage}} of {{ totalPages }}</span>
         <button [disabled]="currentPage===totalPages|| totalPages==0"(click)="onPageChange(currentPage+1)">Next</button> 
        </div>
+<button (click)="logout()">Logout</button>
+<div *ngIf="isLoggedOut">
+    <p>You have been logged out successfully</p>
+</div>

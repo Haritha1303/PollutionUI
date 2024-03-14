@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PollutionService } from '../pollution.service';
 import { PollutionData } from '../PollutionData';
+import { BookMarkServiceService } from '../book-mark-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-pollution',
   templateUrl: './pollution.component.html',
@@ -11,7 +13,8 @@ pollutionData: PollutionData[]=[];
 currentPage=1;
 itemsPerPage=5;
 totalItems=0;
-  constructor(private pollutionService:PollutionService){}
+isLoggedOut:boolean=false;
+  constructor(private pollutionService:PollutionService,private bookMarkService:BookMarkServiceService,private router:Router){}
 
   ngOnInit(): void {
     this.fetchPollutionData();
@@ -43,8 +46,6 @@ totalItems=0;
   return objectsArray;
  }
 
-
-
   onPageChange(pageNumber: number):void{
     this.currentPage=pageNumber;
   }
@@ -58,4 +59,18 @@ totalItems=0;
   get totalPages():number{
 return Math.ceil(this.totalItems/this.itemsPerPage)
   }
+
+bookmarkData(data:any):void{
+  console.log(JSON.stringify(data));
+  this.bookMarkService.bookmarkData(JSON.stringify(data)).subscribe(
+    (response)=>{console.log('Data BookMarked Succesfully:',data);});
+}
+
+
+logout()
+{
+  this.router.navigate(['/login']);
+  this.isLoggedOut=true;
+}
+
 }

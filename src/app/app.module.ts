@@ -10,15 +10,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { BookmarkComponent } from './bookmark/bookmark.component';
-
+import { BookMarkServiceService } from './book-mark-service.service';
+import { AuthenticationService } from './authentication.service';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     PollutionComponent,
     LoginComponent,
     RegistrationComponent,
-    BookmarkComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,7 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PollutionService],
+  providers: [PollutionService,BookMarkServiceService,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,7 +12,9 @@ import { catchError } from 'rxjs';
 
 export class LoginComponent {
   loginForm:FormGroup;
-  
+  loading = false;
+
+
 constructor (private formBuilder: FormBuilder,private router:Router,private authservice:AuthenticationService)
 {
   this.loginForm=this.formBuilder.group({username:['',Validators.required],password:['',Validators.required],});
@@ -38,7 +40,7 @@ const token = response;
 if(response && token)
 {
   localStorage.setItem('token',response.token);
-  this.router.navigate(['../pollution/']);
+  this.router.navigate(['./pollution/']);
 
 }
   //console.warn(this.loginForm.value)

@@ -22,3 +22,31 @@ th, td {
 .pagination-container button{
   margin-left: 5 px;
 }
+.bookmark-button
+{
+  background-color: green;
+  color:#fff;
+  border:none;
+  padding:8px 12px;
+  border-radius:4 px;
+  cursor:pointer;
+  transition:backgroubd-color 0.3s ease;
+}
+
+.bookmark-button:hover{
+  background-color: grey;
+}
+
+.view-bookmark-button
+{
+  background-color: blue;
+  color:#fff;
+  border:none;
+  padding:8px 12px;
+  border-radius:4 px;
+  cursor:pointer;
+  transition:backgroubd-color 0.3s ease;
+}
+.bookmark-button:hover{
+  background-color: rgb(128, 128, 128);
+}
